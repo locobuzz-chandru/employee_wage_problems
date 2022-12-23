@@ -1,27 +1,27 @@
 import random
 
 
-def daily_wage():
+def calculate_wage(emp_rate_per_hr):
     """
-    Function calculates daily wage
-    :return: Employee Attendance
+    Function to calculate wage
     """
-    is_full_time = 1
-    is_part_time = 2
-    emp_rate_per_hour = 20
-    emp_hrs = 0
-    emp_check = random.randrange(0, 3)
-    if emp_check == is_full_time:
-        print("Full time")
-        emp_hrs = 8
-    elif emp_check == is_part_time:
-        print("Part time")
-        emp_hrs = 4
-    else:
-        print("Employee is absent")
-
-    emp_wage = emp_hrs * emp_rate_per_hour
-    print("Employee Wage : ", emp_wage)
+    r = random.randint(0, 2)
+    emp_hrs = get_emp_hrs(r)
+    emp_wage = emp_hrs * emp_rate_per_hr
+    print(f'Employee wage is {emp_wage}')
 
 
-daily_wage()
+def get_emp_hrs(r):
+    """
+    Function to check employee working hours
+    """
+    switcher = {
+        0: 0,
+        1: 8,
+        2: 4,
+    }
+    return switcher.get(r)
+
+
+emp_rate_per_hr = 20
+calculate_wage(emp_rate_per_hr)
