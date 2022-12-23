@@ -1,27 +1,29 @@
+# Program to calculate Employee Wage
 import random
 
 
-def calculate_wage(emp_rate_per_hr):
+def wage_for_month():
     """
-    Function to calculate wage
+    Function calculates wage of month
     """
-    r = random.randint(0, 2)
-    emp_hrs = get_emp_hrs(r)
-    emp_wage = emp_hrs * emp_rate_per_hr
-    print(f'Employee wage is {emp_wage}')
+    is_full_time = 1
+    is_part_time = 2
+    emp_rate_per_hour = 20
+    num_of_working_days = 20
+    total_emp_wage = 0
+    for days in range(num_of_working_days):
+        emp_check = random.randrange(0, 3)
+        if emp_check == is_full_time:
+            emp_hrs = 8
+        elif emp_check == is_part_time:
+            emp_hrs = 4
+        else:
+            emp_hrs = 0
+
+        emp_wage = emp_hrs * emp_rate_per_hour
+        total_emp_wage += emp_wage
+
+    print(f'Daily wage is : {total_emp_wage}')
 
 
-def get_emp_hrs(r):
-    """
-    Function to check employee working hours
-    """
-    switcher = {
-        0: 0,
-        1: 8,
-        2: 4,
-    }
-    return switcher.get(r)
-
-
-emp_rate_per_hr = 20
-calculate_wage(emp_rate_per_hr)
+wage_for_month()
