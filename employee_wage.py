@@ -30,4 +30,5 @@ def check_attendance(emp_check):
     return switcher.get(emp_check)
 
 
-calc_wage()
+if __name__ == '__main__':
+    calc_wage()
