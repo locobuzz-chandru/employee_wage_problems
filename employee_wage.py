@@ -10,18 +10,17 @@ def calc_wage():
     total_wage = 0
     emp_wage_per_hr = 15
     while total_emp_hrs < max_working_hrs and total_emp_days < max_working_days:
-        total_emp_days = total_emp_days + 1
         emp_check = random.randrange(0, 3)
         emp_hrs = check_attendance(emp_check)
+        if emp_hrs != 0:
+            total_emp_days = total_emp_days + 1
         total_emp_hrs += emp_hrs
         total_wage += emp_hrs * emp_wage_per_hr
     print(f'Total wage is : {total_wage}')
 
 
 def check_attendance(emp_check):
-    """
-    Function to check employee working hours
-    """
+    """Function to check employee working hours"""
     switcher = {
         0: 0,
         1: 8,
